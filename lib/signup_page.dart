@@ -12,7 +12,7 @@ class LoginTabBar extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Page de connexion'),
+          title: const Text('Page de connexion'),
           backgroundColor: Colors.amber,
         ),
       ),
