@@ -23,3 +23,34 @@ Future<void> main() async {
     }
   });
 }
+
+class LoginTabBar extends StatelessWidget {
+  const LoginTabBar({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Page de connexion'),
+          backgroundColor: Colors.amber,
+        ),
+        body: const ElevatedButton(onPressed: loginToFirebase, child: Text('Connexion')),
+      ),
+    );
+  }
+}
+
+void loginToFirebase() {
+  try {
+    auth
+      .signInWithEmailAndPassword(
+        email: 'david@davipro.fr',
+        password: 'motdepasse')
+      .then((value) {
+        print(value.toString());
+      });
+  } catch (e) {
+    print(e.toString());
+  }
+}
