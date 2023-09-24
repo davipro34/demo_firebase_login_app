@@ -30,27 +30,39 @@ class LoginTabBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Page de connexion'),
-          backgroundColor: Colors.amber,
+      theme: ThemeData(
+        hintColor: Colors.red.shade400,
+      ),
+      home: DefaultTabController(
+        length: 2,
+        child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.amber,
+            bottom: TabBar(tabs: [Tab(text: 'Connexion'), Tab(text: 'Inscription',)]),
+          title: const Text('Firebase Login'),
+          ),
+          body: TabBarView(
+            children: [
+              LoginPage(),
+              SignupPage(),
+            ],
+          ),  
         ),
-        body: const ElevatedButton(onPressed: loginToFirebase, child: Text('Connexion')),
       ),
     );
   }
-}
 
-void loginToFirebase() {
-  try {
-    auth
-      .signInWithEmailAndPassword(
-        email: 'david@davipro.fr',
-        password: 'motdepasse')
-      .then((value) {
-        print(value.toString());
-      });
-  } catch (e) {
-    print(e.toString());
+  void loginToFirebase() {
+    try {
+      auth
+        .signInWithEmailAndPassword(
+          email: 'david@davipro.fr',
+          password: 'motdepasse')
+        .then((value) {
+          print(value.toString());
+        });
+    } catch (e) {
+      print(e.toString());
+    }
   }
 }

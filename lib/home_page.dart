@@ -15,9 +15,19 @@ class Homepage extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Page de profil'),
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.amber,
         ),
-        body: ElevatedButton(onPressed: auth.signOut, child: const Text('Déconnexion')),
+        body: Column(
+          children: [
+            const Text('Vous êtes connecté'),
+            ElevatedButton(
+              onPressed: () {
+                auth.signOut();
+              },
+              child: const Text('Se déconnecter'),
+            ),
+          ],
+        ),
       ),
     );
   }
