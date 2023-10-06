@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'firebase_options.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'home_page.dart';
 import 'signup_page.dart';
 
 FirebaseAuth auth = FirebaseAuth.instance;
+FirebaseFirestore firestore = FirebaseFirestore.instance;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,7 +47,7 @@ class LoginTabBar extends StatelessWidget {
           body: const TabBarView(
             children: [
               LoginPage(),
-              LoginPage(),
+              SignupPage(),
             ],
           ),  
         ),
