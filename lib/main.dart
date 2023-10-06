@@ -89,7 +89,7 @@ class LoginPage extends StatelessWidget {
           children: [
             flutterIcon,
             titleSection,
-            //textSection,
+            textSection,
             //InputSection(),
             //forgetButton,
           ],
@@ -150,5 +150,17 @@ Widget titleSection = Container(
         ),
       ),
     ],
+  ),
+);
+
+Widget textSection = Container(
+  margin: const EdgeInsets.fromLTRB(0, 5, 0, 10),
+  child: Text(
+    'Page de connexion Firebase',
+    style: GoogleFonts.comfortaa(
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+      color: Colors.red.shade700,
+    ),
   ),
 );
