@@ -44,7 +44,7 @@ class LoginTabBar extends StatelessWidget {
           body: TabBarView(
             children: [
               LoginPage(),
-              SignupPage(),
+              LoginPage(),
             ],
           ),  
         ),
@@ -64,5 +64,36 @@ class LoginTabBar extends StatelessWidget {
     } catch (e) {
       print(e.toString());
     }
+  }
+}
+
+class LoginPage extends StatelessWidget {
+  const LoginPage({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Colors.amber.shade300,
+            Colors.amber.shade700,
+            Colors.orange.shade900,
+          ],
+        ),
+      ),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            flutterIcon,
+            titleSection,
+            textSection,
+            InputSection(),
+            forgetButton,
+          ],
+        ),
+      ),
+    );
   }
 }
