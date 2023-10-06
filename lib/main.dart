@@ -39,10 +39,10 @@ class LoginTabBar extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.amber,
-            bottom: TabBar(tabs: [Tab(text: 'Connexion'), Tab(text: 'Inscription',)]),
+            bottom: const TabBar(tabs: [Tab(text: 'Connexion'), Tab(text: 'Inscription',)]),
           title: const Text('Firebase Login'),
           ),
-          body: TabBarView(
+          body: const TabBarView(
             children: [
               LoginPage(),
               LoginPage(),
@@ -91,7 +91,7 @@ class LoginPage extends StatelessWidget {
             titleSection,
             textSection,
             InputSection(),
-            //forgetButton,
+            forgetButton,
           ],
         ),
       ),
@@ -100,7 +100,7 @@ class LoginPage extends StatelessWidget {
 }
 
 Widget flutterIcon = Container(
-  margin: const EdgeInsets.only(top: 20),
+  margin: const EdgeInsets.only(top: 15),
   padding: const EdgeInsets.all(20),
   decoration: BoxDecoration(
     borderRadius: BorderRadius.circular(60),
@@ -128,7 +128,7 @@ Widget flutterIcon = Container(
 );
 
 Widget titleSection = Container(
-  margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+  margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
   child: Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
@@ -154,7 +154,7 @@ Widget titleSection = Container(
 );
 
 Widget textSection = Container(
-  margin: const EdgeInsets.fromLTRB(0, 5, 0, 10),
+  margin: const EdgeInsets.fromLTRB(0, 5, 0, 5),
   child: Text(
     'Page de connexion Firebase',
     style: GoogleFonts.comfortaa(
@@ -172,7 +172,7 @@ class InputSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(30),
+      margin: const EdgeInsets.all(20),
       child: Column(
         children: [
           Container(
@@ -311,3 +311,14 @@ class InputSection extends StatelessWidget {
     }
   }
 }
+
+Widget forgetButton = TextButton(
+  onPressed: () {},
+  child: Text(
+    'Mot de passe oublié ?',
+    style: GoogleFonts.comfortaa(
+      color: Colors.white,
+      fontWeight: FontWeight.bold
+    ),
+  ),
+);
